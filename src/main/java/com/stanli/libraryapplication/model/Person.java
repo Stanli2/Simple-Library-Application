@@ -32,4 +32,12 @@ public class Person {
     @NotNull
     @Column(nullable = false)
     private String password;
+
+    @NotNull
+    @Column(nullable = false)
+    private String gender;
+
+    @NotNull
+    @Column(name = "role", nullable = false)
+    private Role role;
 }
