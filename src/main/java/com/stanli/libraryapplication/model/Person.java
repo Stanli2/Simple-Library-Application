@@ -22,16 +22,8 @@ public class Person {
     private Long id;
 
     @NotNull
-    @Column(name="user_name", nullable = false, unique = true)
+    @Column(name="name", nullable = false, unique = true)
     private String username;
-
-    @NotNull
-    @Column(name="first_name", nullable = false)
-    private String firstName;
-
-    @NotNull
-    @Column(name="last_name", nullable = false)
-    private String lastName;
 
     @NotNull
     @Column(unique = true, nullable = false)
