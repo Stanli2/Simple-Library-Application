@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -19,6 +21,10 @@ public class Category {
 
     @NotNull
     @Column(name = "Category", nullable = false)
-    private String Category;
+    private String CategoryOfBooks;
 
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "category",
+            cascade = {CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
+    private List<Book> bookList = new ArrayList<>();
 }
