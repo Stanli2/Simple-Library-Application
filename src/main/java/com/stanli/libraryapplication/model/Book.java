@@ -26,4 +26,8 @@ public class Book {
     @Column(name = "Book_Author", nullable = false)
     private String bookAuthor;
 
+    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @JoinColumn(name = "Category_ID")
+    private Category category;
+
 }
