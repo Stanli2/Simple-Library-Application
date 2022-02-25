@@ -8,5 +8,5 @@ public class BookRequestDto {
 
     private String bookTitle;
     private String bookAuthor;
-    private Category category;
+    private Category categoryOfBooks;
 }

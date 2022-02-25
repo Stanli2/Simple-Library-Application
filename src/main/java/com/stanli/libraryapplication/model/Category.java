@@ -20,11 +20,7 @@ public class Category {
     private Long id;
 
     @NotNull
-    @Column(name = "Category", nullable = false)
-    private String CategoryOfBooks;
+    @Column(name = "category", nullable = false)
+    private String categoryOfBooks;
 
-    @OneToMany(fetch = FetchType.LAZY,
-            mappedBy = "category",
-            cascade = {CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
-    private List<Book> bookList = new ArrayList<>();
 }

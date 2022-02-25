@@ -5,6 +5,7 @@ import com.stanli.libraryapplication.dto.BookResponseDto;
 import com.stanli.libraryapplication.model.Book;
 import com.stanli.libraryapplication.repository.BookRepository;
 import com.stanli.libraryapplication.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class BookServiceImpl implements BookService {
 
     private final BookRepository bookRepository;
 
+    @Autowired
     public BookServiceImpl(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
@@ -25,10 +27,10 @@ public class BookServiceImpl implements BookService {
 
             book.setBookTitle(bookRequestDto.getBookTitle());
             book.setBookAuthor(bookRequestDto.getBookAuthor());
-            book.setCategory(bookRequestDto.getCategory());
+            book.setCategoryOfBooks(bookRequestDto.getCategoryOfBooks());
 
             Book book1 = bookRepository.save(book);
-            BookResponseDto bookResponseDto = new BookResponseDto(book1.getBookTitle(), book1.getBookAuthor(), book1.getCategory());
+            BookResponseDto bookResponseDto = new BookResponseDto(book1.getBookTitle(), book1.getBookAuthor(), book1.getCategoryOfBooks());
 
             return bookResponseDto;
         }
@@ -41,10 +43,10 @@ public class BookServiceImpl implements BookService {
 
         book.setBookTitle(bookRequestDto.getBookTitle());
         book.setBookAuthor(bookRequestDto.getBookAuthor());
-        book.setCategory(bookRequestDto.getCategory());
+        book.setCategoryOfBooks(bookRequestDto.getCategoryOfBooks());
 
         Book book1 = bookRepository.save(book);
-        BookResponseDto bookResponseDto = new BookResponseDto(book1.getBookTitle(), book1.getBookAuthor(), book1.getCategory());
+        BookResponseDto bookResponseDto = new BookResponseDto(book1.getBookTitle(), book1.getBookAuthor(), book1.getCategoryOfBooks());
         return bookResponseDto;
     }
 

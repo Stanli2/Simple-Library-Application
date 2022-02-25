@@ -19,15 +19,15 @@ public class Book {
     private Long id;
 
     @NotNull
-    @Column(name = "Book_Title", nullable = false)
+    @Column(name = "book_Title", nullable = false)
     private String bookTitle;
 
     @NotNull
-    @Column(name = "Book_Author", nullable = false)
+    @Column(name = "book_Author", nullable = false)
     private String bookAuthor;
 
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-    @JoinColumn(name = "Category_ID")
-    private Category category;
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    private Category categoryOfBooks;
 
 }
